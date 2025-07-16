@@ -1,0 +1,18 @@
+{
+  "builds": [
+    {
+      "src": "frontend/pubspec.yaml",
+      "use": "@vercel/flutter",
+      "config": {
+        "installCommand": "fvm flutter pub get",
+        "buildCommand": "fvm flutter build web --release --base-href /"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/build/web/$1"
+    }
+  ]
+}
