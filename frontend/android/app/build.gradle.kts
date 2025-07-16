@@ -7,38 +7,33 @@ plugins {
 
 android {
     namespace = "com.example.schematiq"
-    // Use a modern compile SDK version. 34 is the standard for Android 14.
-    compileSdk = 34 
+    compileSdk = 35
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
-        // Upgrade to a modern Java version.
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
-    }
-
-    sourceSets {
-        getByName("main") {
-            java.srcDirs("src/main/kotlin")
-        }
+        jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
     defaultConfig {
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "com.example.schematiq"
-        // Ensure minSdk is at least 21 for modern plugins.
-        minSdk = 21
-        targetSdk = 34 // Target a modern SDK version.
+        // You can update the following values to match your application needs.
+        // For more information, see: https://flutter.dev/to/review-gradle-config.
+        minSdk = flutter.minSdkVersion
+        targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
-        multiDexEnabled = true
     }
 
     buildTypes {
         release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig = signingConfigs.getByName("debug")
         }
     }
