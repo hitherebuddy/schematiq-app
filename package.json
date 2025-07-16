@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "build": "bash vercel-flutter-build.sh"
+  }
+}

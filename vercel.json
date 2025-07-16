@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontend/pubspec.yaml",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "frontend/build/web"
+      }
+    }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/frontend/build/web/index.html" }
+  ]
+}
