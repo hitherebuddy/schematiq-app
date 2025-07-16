@@ -8,16 +8,5 @@
         "distDir": "frontend/build/web"
       }
     }
-  ],
-  "routes": [
-    {
-      "src": "/assets/(.*)",
-      "headers": { "cache-control": "public, max-age=31536000, immutable" },
-      "dest": "/frontend/build/web/assets/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/frontend/build/web/index.html"
-    }
   ]
 }

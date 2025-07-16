@@ -1,5 +1,6 @@
 {
+  "private": true,
   "scripts": {
-    "build": "bash vercel-flutter-build.sh"
+    "build": "bash vercel-build.sh"
   }
 }
