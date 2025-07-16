@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "frontend/pubspec.yaml",
+      "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "frontend/build/web"
@@ -10,7 +10,14 @@
     }
   ],
   "routes": [
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/frontend/build/web/index.html" }
+    {
+      "src": "/assets/(.*)",
+      "headers": { "cache-control": "public, max-age=31536000, immutable" },
+      "dest": "/frontend/build/web/assets/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/build/web/index.html"
+    }
   ]
 }
